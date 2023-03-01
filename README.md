@@ -1,12 +1,11 @@
 # goWithGO
 Fun with GOLang
 
-## Gett started
-### Database
-**MongoDB**
 ```
-// start service
-brew services start mongodb-community@6.0
-// stop service
-brew services stop mongodb-community@6.0
+docker ps
+docker compose up
+docker compose build
+docker exec -it <container-id> /bin/sh
+
 ```
+
