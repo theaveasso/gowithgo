@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/theaveasso/goWithGO/models"
+	"github.com/theaveasso/gowithgo/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -19,7 +19,7 @@ var DB DBinstance
 
 func ConnectDB() {
 	dsn := fmt.Sprintf(
-		"host=db user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=Asia/Bangkork",
+		"host=db user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=Asia/Shanghai ",
 		os.Getenv("DB_USER"),
 		os.Getenv("DB_PASSWORD"),
 		os.Getenv("DB_NAME"),
@@ -36,4 +36,8 @@ func ConnectDB() {
 
 	log.Println("runing migration")
 	db.AutoMigrate(&models.Fact{})
+
+	DB = DBinstance{
+		DB: db,
+	}
 }
