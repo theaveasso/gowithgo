@@ -1,9 +1,15 @@
 package main
 
 import (
-	"fmt"
+	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
-	fmt.Println("Go With Go <3")
+	app := fiber.New()
+
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("Go With Go <3")
+	})
+
+	app.Listen(":3000")
 }
